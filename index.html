@@ -1,124 +1,78 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#10251f">
 <title>إدارة معمل الذهب</title>
 <style>
-:root {
-  --bg: #f3f5f2;
-  --card: #fff;
-  --ink: #17231f;
-  --muted: #68756f;
-  --green: #176b50;
-  --line: #dce5df;
-  --gold: #c99b3b;
-  --red: #a83a35;
+:root{--bg:#f3f5f2;--card:#fff;--ink:#17231f;--muted:#68756f;--green:#176b50;--line:#dce5df;--gold:#c99b3b;--red:#a83a35}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Tahoma,Arial,sans-serif}
+header{background:linear-gradient(135deg,#10251f,#1c5b45);color:#fff;padding:25px 18px 32px;border-radius:0 0 24px 24px}
+.wrap{max-width:920px;margin:auto;padding:0 15px}
+header .eyebrow{color:#e7c978;font-size:13px}
+h1{margin:8px 0;font-size:26px}
+header p{margin:0;color:#d8e6de;font-size:14px}
+main{margin-top:-15px;padding-bottom:40px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:17px;margin-bottom:14px;box-shadow:0 4px 15px #193a2b08}
+.card h2{font-size:17px;margin:0 0 14px}
+.stats .stat{background:#f5f8f5;border-radius:12px;padding:14px}
+.label{color:var(--muted);font-size:12px}
+.value{font-weight:750;font-size:22px;margin-top:5px}
+.status{font-size:13px;font-weight:700;border-radius:99px;padding:7px 10px;background:#edf2ee}
+.status.work{color:#176b50;background:#e5f5ec}
+.status.stop{color:#a83a35;background:#fff0ee}
+label{display:block;font-size:13px;color:var(--muted);margin:10px 0 6px}
+input,textarea{width:100%;min-width:0;border:1px solid #cfdad2;background:#fff;border-radius:10px;padding:12px;font:inherit;font-size:16px;color:var(--ink)}
+textarea{min-height:95px;resize:vertical}
+.actions{display:flex;gap:9px;flex-wrap:wrap}
+button{border:0;border-radius:10px;min-height:45px;padding:11px 15px;font:inherit;font-weight:700;cursor:pointer}
+.primary{background:var(--green);color:white}
+.secondary{background:#edf2ee;color:#20382d;border:1px solid var(--line)}
+.danger{background:#fff0ee;color:#a83a35;border:1px solid #f2cfcb}
+.full{width:100%}
+.help{font-size:12px;color:var(--muted);line-height:1.7}
+.logitem{padding:11px 0;border-bottom:1px solid var(--line)}
+.logitem:last-child{border-bottom:0}
+.logtime{font-size:12px;color:var(--muted);margin-top:4px}
+.notice{border-right:3px solid var(--gold);padding:10px 12px;background:#fff9e9;font-size:12px;line-height:1.7;color:#604d23;border-radius:6px}
+@media(max-width:520px){
+.grid{gap:9px}
+.value{font-size:19px}
+.card{padding:14px}
+h1{font-size:23px}
 }
-* { box-sizing: border-box; }
-body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--ink);
-  font-family: Arial, Tahoma, sans-serif;
-}
-header {
-  background: linear-gradient(135deg,#10251f,#1c5b45);
-  color: white;
-  padding: 25px 18px 32px;
-  border-radius: 0 0 24px 24px;
-}
-.wrap { max-width: 920px; margin: auto; padding: 0 15px; }
-header h1 { margin: 8px 0; }
-header p { color: #d8e6de; }
-main { margin-top: -15px; padding-bottom: 40px; }
-.card {
-  background: var(--card);
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  padding: 17px;
-  margin-bottom: 14px;
-  box-shadow: 0 4px 15px #193a2b08;
-}
-.grid {
-  display: grid;
-  grid-template-columns: repeat(2,minmax(0,1fr));
-  gap: 12px;
-}
-.stats .stat { background: #f5f8f5; border-radius: 12px; padding: 14px; }
-.label { color: var(--muted); font-size: 12px; }
-.value { font-weight: bold; font-size: 22px; margin-top: 5px; }
-.status { font-size: 13px; font-weight: bold; border-radius: 99px; padding: 7px 10px; background: #edf2ee; }
-.status.work { color: #176b50; background: #e5f5ec; }
-.status.stop { color: #a83a35; background: #fff0ee; }
-label { display: block; font-size: 13px; color: var(--muted); margin: 10px 0 6px; }
-input, textarea {
-  width: 100%;
-  min-width: 0;
-  border: 1px solid #cfdad2;
-  background: white;
-  border-radius: 10px;
-  padding: 12px;
-  font: inherit;
-  font-size: 16px;
-  color: var(--ink);
-}
-textarea { min-height: 95px; resize: vertical; }
-.actions { display: flex; gap: 9px; flex-wrap: wrap; margin-top: 12px; }
-button {
-  border: 0;
-  border-radius: 10px;
-  min-height: 45px;
-  padding: 11px 15px;
-  font: inherit;
-  font-weight: bold;
-  cursor: pointer;
-}
-.primary { background: var(--green); color: white; }
-.secondary { background: #edf2ee; color: #20382d; border: 1px solid var(--line); }
-.danger { background: #fff0ee; color: #a83a35; border: 1px solid #f2cfcb; }
-.help { font-size: 12px; color: var(--muted); line-height: 1.7; }
-.logitem { padding: 11px 0; border-bottom: 1px solid var(--line); }
-.logtime { font-size: 12px; color: var(--muted); margin-top: 4px; }
-.notice {
-  border-right: 3px solid var(--gold);
-  padding: 10px 12px;
-  background: #fff9e9;
-  font-size: 12px;
-  line-height: 1.7;
-  color: #604d23;
-  border-radius: 6px;
-}
-@media(max-width:520px) {
-  .grid { gap: 9px; }
-  .value { font-size: 19px; }
-  .card { padding: 14px; }
-}
-@media print {
-  body { background: white; }
-  header { background: white; color: #111; border-bottom: 2px solid #222; }
-  header p { color: #333; }
-  .no-print { display: none !important; }
-  .card { break-inside: avoid; }
+@media print{
+body{background:#fff}
+header{border-radius:0;padding:15px;background:#fff;color:#111;border-bottom:2px solid #222}
+header p,header .eyebrow{color:#333}
+main{margin:0}
+.no-print{display:none!important}
+.card{box-shadow:none;break-inside:avoid}
+.stats .stat{background:#fff;border:1px solid #ddd}
 }
 </style>
 </head>
 <body>
+
 <header>
   <div class="wrap">
-    <div>نظام متابعة التأجير والتشغيل</div>
-    <h1>💎 إدارة معمل الذهب</h1>
-    <p>متابعة ساعات العمل والتوقف والملاحظات لكل مستأجر.</p>
+    <div class="eyebrow">نظام متابعة التأجير والتشغيل</div>
+    <h1>إدارة معمل الذهب</h1>
+    <p>سجل ساعات العمل والتوقف والملاحظات لكل مستأجر، واطبع تقرير PDF.</p>
   </div>
 </header>
 
 <main class="wrap">
+
   <section class="card">
-    <h2>ملخص المستأجر الحالي</h2>
     <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
+      <h2 style="margin:0">ملخص المستأجر الحالي</h2>
       <span id="status" class="status">لم يبدأ العمل</span>
     </div>
+
     <div class="grid stats" style="margin-top:14px">
       <div class="stat">
         <div class="label">إجمالي وقت العمل</div>
@@ -134,15 +88,16 @@ button {
       </div>
       <div class="stat">
         <div class="label">فترة التأجير</div>
-        <div class="value" id="period">—</div>
+        <div class="value" style="font-size:16px" id="period">—</div>
       </div>
     </div>
   </section>
 
   <section class="card">
     <h2>١. بيانات المستأجر</h2>
+
     <label for="tenant">اسم المستأجر</label>
-    <input id="tenant" placeholder="مثلاً: وسام">
+    <input id="tenant" placeholder="اكتب اسم المستأجر">
 
     <div class="grid">
       <div>
@@ -155,55 +110,72 @@ button {
       </div>
     </div>
 
-    <label for="notes">الملاحظات العامة</label>
-    <textarea id="notes" placeholder="اكتب ملاحظاتك هنا..."></textarea>
+    <label for="notes">ملاحظات عامة (تظهر في التقرير)</label>
+    <textarea id="notes" placeholder="اكتب ملاحظات المستأجر أو فترة التأجير..."></textarea>
 
-    <div class="actions no-print">
-      <button id="saveInfo" class="primary">💾 حفظ بيانات المستأجر</button>
+    <div class="actions no-print" style="margin-top:12px">
+      <button id="saveInfo" class="primary">حفظ بيانات المستأجر</button>
       <button id="addNote" class="secondary">📝 إضافة ملاحظة للسجل</button>
-      <button id="newRecord" class="secondary">➕ سجل مستأجر جديد</button>
+      <button id="newRecord" class="secondary">سجل مستأجر جديد</button>
+      <button id="resetCounter" class="danger">تصفير العداد والسجل</button>
+      <button id="deleteTenant" class="danger">حذف المستأجر الحالي</button>
     </div>
-    <p class="help">الملاحظات المضافة إلى السجل ستظهر في التقرير عند حفظه بصيغة PDF.</p>
+
+    <p class="help">
+      البيانات محفوظة في المتصفح على هذا الجهاز. احتفظ بنسخة PDF من سجلاتك المهمة.
+    </p>
   </section>
 
   <section class="card no-print">
     <h2>٢. تسجيل العمل والتوقف</h2>
+
     <label for="eventNote">ملاحظة لهذا الحدث (اختياري)</label>
     <input id="eventNote" placeholder="مثلاً: انقطاع الكهرباء أو صيانة">
 
-    <div class="actions">
+    <div class="actions" style="margin-top:12px">
       <button id="startWork" class="primary">▶ بدء العمل</button>
       <button id="stopWork" class="danger">⏸ تسجيل توقف</button>
       <button id="resumeWork" class="secondary">↻ استئناف العمل</button>
     </div>
+
     <p id="message" class="help" aria-live="polite">
       عند انقطاع الكهرباء اضغط تسجيل توقف، وعند رجوعها اضغط استئناف العمل.
     </p>
   </section>
 
   <section class="card">
-    <h2>٣. سجل الأحداث</h2>
-    <div id="events"><p class="help">لا توجد أحداث مسجلة.</p></div>
-    <button id="pdf" class="primary no-print">📄 طباعة التقرير الكامل PDF</button>
-    <p class="help no-print">من نافذة الطباعة اختر حفظ كـ PDF.</p>
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
+      <h2 style="margin:0">٣. سجل الأحداث</h2>
+      <button id="pdf" class="primary no-print">تنزيل / طباعة PDF</button>
+    </div>
+
+    <div id="events" style="margin-top:10px">
+      <p class="help">لا توجد أحداث مسجلة.</p>
+    </div>
+
+    <p class="help no-print">
+      عند الضغط على تنزيل PDF، اختر «حفظ كـ PDF» من نافذة الطباعة.
+    </p>
   </section>
 
   <section class="notice no-print">
-    تنبيه: البيانات محفوظة في متصفح هذا الجهاز فقط. احتفظ بنسخ PDF احتياطية.
+    تنبيه: هذه النسخة تحفظ البيانات محلياً في المتصفح، وليست قاعدة بيانات سحابية مشتركة بين الأجهزة.
   </section>
+
 </main>
 
 <script>
 (() => {
   const KEY = 'goldWorkshopRecords_v2';
   const $ = id => document.getElementById(id);
-  const fields = ['tenant','startDate','endDate','notes'];
+  const fields = ['tenant', 'startDate', 'endDate', 'notes'];
+
   let records = [];
   let record;
 
   function blankRecord() {
     return {
-      id: String(Date.now()) + Math.random(),
+      id: (crypto.randomUUID ? crypto.randomUUID() : String(Date.now()) + Math.random()),
       tenant: '',
       startDate: '',
       endDate: '',
@@ -213,7 +185,8 @@ button {
       workMs: 0,
       stopMs: 0,
       stopCount: 0,
-      events: []
+      events: [],
+      createdAt: Date.now()
     };
   }
 
@@ -221,7 +194,7 @@ button {
     try {
       records = JSON.parse(localStorage.getItem(KEY) || '[]');
       if (!Array.isArray(records)) records = [];
-    } catch (e) {
+    } catch (_) {
       records = [];
     }
 
@@ -237,14 +210,18 @@ button {
   }
 
   function saveAll() {
-    const index = records.findIndex(x => x.id === record.id);
-    if (index === -1) records.push(record);
-    else records[index] = record;
+    const index = records.findIndex(item => item.id === record.id);
+
+    if (index < 0) {
+      records.push(record);
+    } else {
+      records[index] = record;
+    }
 
     try {
       localStorage.setItem(KEY, JSON.stringify(records));
-    } catch (e) {
-      msg('تعذر حفظ البيانات. احتفظ بنسخة PDF.');
+    } catch (_) {
+      msg('تعذر الحفظ في المتصفح. اطبع PDF للاحتفاظ بنسخة.');
     }
   }
 
@@ -261,21 +238,23 @@ button {
   }
 
   function fmt(ms) {
-    let sec = Math.floor(Math.max(0, ms) / 1000);
-    const hours = Math.floor(sec / 3600);
-    sec %= 3600;
-    const minutes = Math.floor(sec / 60);
-    sec %= 60;
+    let seconds = Math.floor(Math.max(0, ms) / 1000);
+    const hours = Math.floor(seconds / 3600);
 
-    return [hours, minutes, sec]
+    seconds %= 3600;
+    const minutes = Math.floor(seconds / 60);
+    seconds %= 60;
+
+    return [hours, minutes, seconds]
       .map(n => String(n).padStart(2, '0'))
       .join(':');
   }
 
   function dateText(value) {
     if (!value) return '—';
-    const [y, m, d] = value.split('-');
-    return `${d}/${m}/${y}`;
+
+    const [year, month, day] = value.split('-');
+    return `${day}/${month}/${year}`;
   }
 
   function timeText(value) {
@@ -301,7 +280,7 @@ button {
       stop += Date.now() - record.lastAt;
     }
 
-    return {work, stop};
+    return { work, stop };
   }
 
   function esc(value) {
@@ -318,20 +297,12 @@ button {
     $('message').textContent = text;
   }
 
-  function addEvent(type, note = '') {
-    record.events.push({
-      type,
-      time: Date.now(),
-      note
-    });
-  }
-
   function render() {
     const t = totals();
 
     $('workTotal').textContent = fmt(t.work);
     $('stopTotal').textContent = fmt(t.stop);
-    $('stopCount').textContent = record.stopCount;
+    $('stopCount').textContent = String(record.stopCount);
 
     $('period').textContent =
       record.startDate && record.endDate
@@ -339,6 +310,7 @@ button {
         : '—';
 
     const status = $('status');
+
     status.className = 'status' +
       (record.state === 'work' ? ' work' :
        record.state === 'stop' ? ' stop' : '');
@@ -353,7 +325,9 @@ button {
           `<div class="logitem">
             <strong>${esc(event.type)}</strong>
             <div class="logtime">${esc(timeText(event.time))}</div>
-            ${event.note ? `<div>${esc(event.note).replace(/\n/g, '<br>')}</div>` : ''}
+            ${event.note
+              ? `<div>${esc(event.note).replace(/\n/g, '<br>')}</div>`
+              : ''}
           </div>`
         ).join('')
       : '<p class="help">لا توجد أحداث مسجلة.</p>';
@@ -369,8 +343,11 @@ button {
       return false;
     }
 
-    if (record.startDate && record.endDate &&
-        record.endDate < record.startDate) {
+    if (
+      record.startDate &&
+      record.endDate &&
+      record.endDate < record.startDate
+    ) {
       msg('تاريخ الانتهاء يجب ألا يسبق تاريخ البدء.');
       return false;
     }
@@ -378,11 +355,20 @@ button {
     return true;
   }
 
+  function addEvent(type, note = '') {
+    record.events.push({
+      type,
+      time: Date.now(),
+      note
+    });
+  }
+
   $('saveInfo').addEventListener('click', () => {
     if (!validate()) return;
+
     saveAll();
-    render();
     msg('تم حفظ بيانات المستأجر.');
+    render();
   });
 
   $('startWork').addEventListener('click', () => {
@@ -395,10 +381,11 @@ button {
 
     record.state = 'work';
     record.lastAt = Date.now();
+
     addEvent('بدء العمل', $('eventNote').value.trim());
     $('eventNote').value = '';
 
-    msg('بدأ عداد وقت العمل.');
+    msg('بدأ عداد العمل.');
     render();
   });
 
@@ -409,10 +396,11 @@ button {
     }
 
     const now = Date.now();
+
     record.workMs += now - record.lastAt;
     record.lastAt = now;
     record.state = 'stop';
-    record.stopCount++;
+    record.stopCount += 1;
 
     addEvent('توقف العمل', $('eventNote').value.trim());
     $('eventNote').value = '';
@@ -428,6 +416,7 @@ button {
     }
 
     const now = Date.now();
+
     record.stopMs += now - record.lastAt;
     record.lastAt = now;
     record.state = 'work';
@@ -439,12 +428,11 @@ button {
     render();
   });
 
-  // هذا الزر يحفظ الملاحظة في السجل، ولا يفتح الطباعة.
   $('addNote').addEventListener('click', () => {
     const note = $('eventNote').value.trim();
 
     if (!note) {
-      msg('اكتب الملاحظة في خانة ملاحظة الحدث أولاً.');
+      msg('اكتب الملاحظة في خانة ملاحظة لهذا الحدث أولاً.');
       return;
     }
 
@@ -454,23 +442,63 @@ button {
 
     saveAll();
     render();
-    msg('تم حفظ الملاحظة. ستظهر في التقرير عند طباعة PDF.');
+
+    msg('تم حفظ الملاحظة في سجل الأحداث. ستظهر في تقرير PDF.');
+  });
+
+  // تصفير العدادات وسجل الأحداث مع الاحتفاظ ببيانات المستأجر.
+  $('resetCounter').addEventListener('click', () => {
+    if (!confirm(
+      'تأكيد تصفير عداد العمل والتوقف وحذف سجل الأحداث الحالي؟ لا يمكن التراجع.'
+    )) return;
+
+    record.state = 'idle';
+    record.lastAt = null;
+    record.workMs = 0;
+    record.stopMs = 0;
+    record.stopCount = 0;
+    record.events = [];
+
+    saveAll();
+    render();
+
+    msg('تم تصفير العدادات ومسح سجل الأحداث. بيانات المستأجر بقيت محفوظة.');
+  });
+
+  // حذف المستأجر الحالي وجميع بياناته.
+  $('deleteTenant').addEventListener('click', () => {
+    if (!confirm(
+      'هل تريد حذف المستأجر الحالي وجميع بياناته وأوقاته وملاحظاته؟ لا يمكن التراجع.'
+    )) return;
+
+    records = records.filter(item => item.id !== record.id);
+
+    try {
+      localStorage.setItem(KEY, JSON.stringify(records));
+    } catch (_) {}
+
+    record = blankRecord();
+    fillFields();
+    saveAll();
+    render();
+
+    msg('تم حذف السجل الحالي. يمكنك إدخال مستأجر جديد.');
   });
 
   $('newRecord').addEventListener('click', () => {
-    if (record.state !== 'idle' &&
-        !confirm('العداد يعمل أو متوقف. هل تريد إنشاء سجل جديد؟')) {
-      return;
-    }
+    if (
+      record.state !== 'idle' &&
+      !confirm('العداد يعمل أو متوقف. هل تريد إنشاء سجل جديد؟')
+    ) return;
 
     readFields();
     saveAll();
 
     record = blankRecord();
     records.push(record);
-    fillFields();
 
-    msg('تم إنشاء سجل جديد لمستأجر آخر.');
+    fillFields();
+    msg('تم إنشاء سجل جديد. اكتب بيانات المستأجر الجديد.');
     render();
   });
 
@@ -478,6 +506,7 @@ button {
     if (!validate()) return;
 
     saveAll();
+
     const t = totals();
 
     const rows = record.events.map(event =>
@@ -489,80 +518,85 @@ button {
     ).join('');
 
     const report = `<!doctype html>
-    <html lang="ar" dir="rtl">
-    <head>
-      <meta charset="utf-8">
-      <title>تقرير معمل الذهب</title>
-      <style>
-        body {
-          font-family: Arial, Tahoma, sans-serif;
-          color: #17231f;
-          margin: 28px;
-          line-height: 1.8;
-        }
-        h1 {
-          color: #176b50;
-          border-bottom: 3px solid #c99b3b;
-          padding-bottom: 12px;
-        }
-        .box {
-          border: 1px solid #ccd7d0;
-          border-radius: 8px;
-          padding: 12px;
-          margin: 10px 0;
-        }
-        .notes { white-space: pre-wrap; }
-        table {
-          width: 100%;
-          border-collapse: collapse;
-          margin-top: 12px;
-        }
-        th, td {
-          border: 1px solid #cbd5ce;
-          padding: 8px;
-          text-align: right;
-          font-size: 12px;
-        }
-        th { background: #eaf1ec; }
-        @media print { body { margin: 12mm; } }
-      </style>
-    </head>
-    <body>
-      <h1>تقرير تأجير معمل الذهب</h1>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>تقرير معمل الذهب</title>
+<style>
+body{
+  font-family:Arial,Tahoma,sans-serif;
+  color:#17231f;
+  margin:28px;
+  line-height:1.8
+}
+h1{
+  color:#176b50;
+  border-bottom:3px solid #c99b3b;
+  padding-bottom:12px
+}
+.box{
+  border:1px solid #ccd7d0;
+  border-radius:8px;
+  padding:12px;
+  margin:10px 0
+}
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:12px
+}
+th,td{
+  border:1px solid #cbd5ce;
+  padding:8px;
+  text-align:right;
+  font-size:12px
+}
+th{background:#eaf1ec}
+.notes{white-space:pre-wrap}
+@media print{body{margin:12mm}}
+</style>
+</head>
+<body>
+<h1>تقرير تأجير معمل الذهب</h1>
 
-      <div class="box">
-        <b>اسم المستأجر:</b> ${esc(record.tenant || '—')}<br>
-        <b>تاريخ بدء التأجير:</b> ${dateText(record.startDate)}<br>
-        <b>تاريخ انتهاء التأجير:</b> ${dateText(record.endDate)}<br>
-        <b>تاريخ التقرير:</b> ${timeText(Date.now())}
-      </div>
+<div class="box">
+<b>اسم المستأجر:</b> ${esc(record.tenant || '—')}<br>
+<b>تاريخ بدء التأجير:</b> ${dateText(record.startDate)}<br>
+<b>تاريخ انتهاء التأجير:</b> ${dateText(record.endDate)}<br>
+<b>تاريخ إصدار التقرير:</b> ${timeText(Date.now())}
+</div>
 
-      <div class="box">
-        <b>إجمالي وقت العمل:</b> ${fmt(t.work)}<br>
-        <b>إجمالي وقت التوقف:</b> ${fmt(t.stop)}<br>
-        <b>عدد التوقفات:</b> ${record.stopCount}
-      </div>
+<div class="box">
+<b>إجمالي وقت العمل:</b> ${fmt(t.work)}<br>
+<b>إجمالي وقت التوقف:</b> ${fmt(t.stop)}<br>
+<b>عدد التوقفات:</b> ${record.stopCount}<br>
+<b>الحالة:</b>
+${record.state === 'work' ? 'يعمل' :
+  record.state === 'stop' ? 'متوقف' : 'لم يبدأ العمل'}
+</div>
 
-      <div class="box">
-        <b>الملاحظات العامة:</b>
-        <div class="notes">${esc(record.notes || 'لا توجد ملاحظات')}</div>
-      </div>
+<div class="box">
+<b>الملاحظات العامة</b>
+<div class="notes">${esc(record.notes || 'لا توجد ملاحظات')}</div>
+</div>
 
-      <h2>سجل الأحداث والملاحظات</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>التاريخ والوقت</th>
-            <th>الحدث</th>
-            <th>الملاحظة</th>
-          </tr>
-        </thead>
-        <tbody>
-          ${rows || '<tr><td colspan="3">لا توجد أحداث</td></tr>'}
-        </tbody>
-      </table>
-    </body>
-    </html>`;
+<h2>سجل الأحداث والملاحظات</h2>
+
+<table>
+<thead>
+<tr>
+<th>التاريخ والوقت</th>
+<th>الحدث</th>
+<th>الملاحظة</th>
+</tr>
+</thead>
+<tbody>
+${rows || '<tr><td colspan="3">لا توجد أحداث</td></tr>'}
+</tbody>
+</table>
+</body>
+</html>`;
 
     const win = window.open('', '_blank');
 
@@ -574,6 +608,7 @@ button {
     win.document.open();
     win.document.write(report);
     win.document.close();
+
     win.onload = () => win.print();
 
     msg('افتح نافذة التقرير واختر طباعة ثم حفظ كـ PDF.');
@@ -587,10 +622,10 @@ button {
     });
   });
 
-  // تحديث العداد كل ثانية.
   setInterval(render, 1000);
   load();
 })();
 </script>
+
 </body>
 </html>
