@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#10251f">
 <title>إدارة معمل الذهب</title>
-
 <style>
 :root {
   --bg: #f3f5f2;
@@ -17,103 +16,44 @@
   --gold: #c99b3b;
   --red: #a83a35;
 }
-
-* {
-  box-sizing: border-box;
-}
-
+* { box-sizing: border-box; }
 body {
   margin: 0;
   background: var(--bg);
   color: var(--ink);
   font-family: Arial, Tahoma, sans-serif;
 }
-
 header {
-  background: linear-gradient(135deg, #10251f, #1c5b45);
+  background: linear-gradient(135deg,#10251f,#1c5b45);
   color: white;
   padding: 25px 18px 32px;
   border-radius: 0 0 24px 24px;
 }
-
-.wrap {
-  max-width: 920px;
-  margin: auto;
-  padding: 0 15px;
-}
-
-header h1 {
-  margin: 8px 0;
-}
-
-header p {
-  color: #d8e6de;
-}
-
-main {
-  margin-top: -15px;
-  padding-bottom: 40px;
-}
-
+.wrap { max-width: 920px; margin: auto; padding: 0 15px; }
+header h1 { margin: 8px 0; }
+header p { color: #d8e6de; }
+main { margin-top: -15px; padding-bottom: 40px; }
 .card {
   background: var(--card);
   border: 1px solid var(--line);
   border-radius: 16px;
   padding: 17px;
   margin-bottom: 14px;
+  box-shadow: 0 4px 15px #193a2b08;
 }
-
 .grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(2,minmax(0,1fr));
   gap: 12px;
 }
-
-.stats .stat {
-  background: #f5f8f5;
-  border-radius: 12px;
-  padding: 14px;
-}
-
-.label {
-  color: var(--muted);
-  font-size: 13px;
-}
-
-.value {
-  font-weight: bold;
-  font-size: 22px;
-  margin-top: 5px;
-  overflow-wrap: anywhere;
-}
-
-.status {
-  font-size: 13px;
-  font-weight: bold;
-  border-radius: 99px;
-  padding: 7px 10px;
-  background: #edf2ee;
-}
-
-.status.work {
-  color: #176b50;
-  background: #e5f5ec;
-}
-
-.status.stop {
-  color: #a83a35;
-  background: #fff0ee;
-}
-
-label {
-  display: block;
-  font-size: 13px;
-  color: var(--muted);
-  margin: 10px 0 6px;
-}
-
-input,
-textarea {
+.stats .stat { background: #f5f8f5; border-radius: 12px; padding: 14px; }
+.label { color: var(--muted); font-size: 12px; }
+.value { font-weight: bold; font-size: 22px; margin-top: 5px; }
+.status { font-size: 13px; font-weight: bold; border-radius: 99px; padding: 7px 10px; background: #edf2ee; }
+.status.work { color: #176b50; background: #e5f5ec; }
+.status.stop { color: #a83a35; background: #fff0ee; }
+label { display: block; font-size: 13px; color: var(--muted); margin: 10px 0 6px; }
+input, textarea {
   width: 100%;
   min-width: 0;
   border: 1px solid #cfdad2;
@@ -124,19 +64,8 @@ textarea {
   font-size: 16px;
   color: var(--ink);
 }
-
-textarea {
-  min-height: 95px;
-  resize: vertical;
-}
-
-.actions {
-  display: flex;
-  gap: 9px;
-  flex-wrap: wrap;
-  margin-top: 12px;
-}
-
+textarea { min-height: 95px; resize: vertical; }
+.actions { display: flex; gap: 9px; flex-wrap: wrap; margin-top: 12px; }
 button {
   border: 0;
   border-radius: 10px;
@@ -146,41 +75,12 @@ button {
   font-weight: bold;
   cursor: pointer;
 }
-
-.primary {
-  background: var(--green);
-  color: white;
-}
-
-.secondary {
-  background: #edf2ee;
-  color: #20382d;
-  border: 1px solid var(--line);
-}
-
-.danger {
-  background: #fff0ee;
-  color: #a83a35;
-  border: 1px solid #f2cfcb;
-}
-
-.help {
-  font-size: 12px;
-  color: var(--muted);
-  line-height: 1.7;
-}
-
-.logitem {
-  padding: 11px 0;
-  border-bottom: 1px solid var(--line);
-}
-
-.logtime {
-  font-size: 12px;
-  color: var(--muted);
-  margin-top: 4px;
-}
-
+.primary { background: var(--green); color: white; }
+.secondary { background: #edf2ee; color: #20382d; border: 1px solid var(--line); }
+.danger { background: #fff0ee; color: #a83a35; border: 1px solid #f2cfcb; }
+.help { font-size: 12px; color: var(--muted); line-height: 1.7; }
+.logitem { padding: 11px 0; border-bottom: 1px solid var(--line); }
+.logtime { font-size: 12px; color: var(--muted); margin-top: 4px; }
 .notice {
   border-right: 3px solid var(--gold);
   padding: 10px 12px;
@@ -190,49 +90,21 @@ button {
   color: #604d23;
   border-radius: 6px;
 }
-
-@media (max-width: 520px) {
-  .grid {
-    gap: 9px;
-  }
-
-  .value {
-    font-size: 19px;
-  }
-
-  .card {
-    padding: 14px;
-  }
+@media(max-width:520px) {
+  .grid { gap: 9px; }
+  .value { font-size: 19px; }
+  .card { padding: 14px; }
 }
-
 @media print {
-  body {
-    background: white;
-  }
-
-  header {
-    background: white;
-    color: #111;
-    border-bottom: 2px solid #222;
-  }
-
-  header p {
-    color: #333;
-  }
-
-  .no-print {
-    display: none !important;
-  }
-
-  .card {
-    break-inside: avoid;
-  }
+  body { background: white; }
+  header { background: white; color: #111; border-bottom: 2px solid #222; }
+  header p { color: #333; }
+  .no-print { display: none !important; }
+  .card { break-inside: avoid; }
 }
 </style>
 </head>
-
 <body>
-
 <header>
   <div class="wrap">
     <div>نظام متابعة التأجير والتشغيل</div>
@@ -242,40 +114,33 @@ button {
 </header>
 
 <main class="wrap">
-
   <section class="card">
-    <h2>📊 ملخص المستأجر الحالي</h2>
-
-    <div class="grid stats">
+    <h2>ملخص المستأجر الحالي</h2>
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
+      <span id="status" class="status">لم يبدأ العمل</span>
+    </div>
+    <div class="grid stats" style="margin-top:14px">
       <div class="stat">
         <div class="label">إجمالي وقت العمل</div>
         <div class="value" id="workTotal">00:00:00</div>
       </div>
-
       <div class="stat">
         <div class="label">إجمالي وقت التوقف</div>
         <div class="value" id="stopTotal">00:00:00</div>
       </div>
-
       <div class="stat">
         <div class="label">عدد التوقفات</div>
         <div class="value" id="stopCount">0</div>
       </div>
-
       <div class="stat">
         <div class="label">فترة التأجير</div>
         <div class="value" id="period">—</div>
       </div>
     </div>
-
-    <p class="help">
-      العداد يعرض الساعات والدقائق والثواني.
-    </p>
   </section>
 
   <section class="card">
     <h2>١. بيانات المستأجر</h2>
-
     <label for="tenant">اسم المستأجر</label>
     <input id="tenant" placeholder="مثلاً: وسام">
 
@@ -284,7 +149,6 @@ button {
         <label for="startDate">تاريخ بدء التأجير</label>
         <input id="startDate" type="date">
       </div>
-
       <div>
         <label for="endDate">تاريخ انتهاء التأجير</label>
         <input id="endDate" type="date">
@@ -292,359 +156,310 @@ button {
     </div>
 
     <label for="notes">الملاحظات العامة</label>
-    <textarea id="notes"
-      placeholder="اكتب ملاحظاتك هنا..."></textarea>
+    <textarea id="notes" placeholder="اكتب ملاحظاتك هنا..."></textarea>
 
     <div class="actions no-print">
-      <button id="saveInfo" class="primary">
-        💾 حفظ بيانات المستأجر
-      </button>
-
-      <button id="printNotes" class="secondary">
-        📝 طباعة الملاحظات فقط
-      </button>
-
-      <button id="newRecord" class="secondary">
-        ➕ سجل مستأجر جديد
-      </button>
+      <button id="saveInfo" class="primary">💾 حفظ بيانات المستأجر</button>
+      <button id="addNote" class="secondary">📝 إضافة ملاحظة للسجل</button>
+      <button id="newRecord" class="secondary">➕ سجل مستأجر جديد</button>
     </div>
-
-    <p class="help">
-      البيانات محفوظة في متصفح هذا الجهاز.
-    </p>
+    <p class="help">الملاحظات المضافة إلى السجل ستظهر في التقرير عند حفظه بصيغة PDF.</p>
   </section>
 
   <section class="card no-print">
     <h2>٢. تسجيل العمل والتوقف</h2>
-
-    <label for="eventNote">
-      ملاحظة لهذا الحدث
-    </label>
-
-    <input id="eventNote"
-      placeholder="مثلاً: انقطاع الكهرباء">
+    <label for="eventNote">ملاحظة لهذا الحدث (اختياري)</label>
+    <input id="eventNote" placeholder="مثلاً: انقطاع الكهرباء أو صيانة">
 
     <div class="actions">
-      <button id="startWork" class="primary">
-        ▶ بدء العمل
-      </button>
-
-      <button id="stopWork" class="danger">
-        ⏸ تسجيل توقف
-      </button>
-
-      <button id="resumeWork" class="secondary">
-        ↻ استئناف العمل
-      </button>
+      <button id="startWork" class="primary">▶ بدء العمل</button>
+      <button id="stopWork" class="danger">⏸ تسجيل توقف</button>
+      <button id="resumeWork" class="secondary">↻ استئناف العمل</button>
     </div>
-
-    <p id="message" class="help">
-      اضغط بدء العمل، وعند انقطاع الكهرباء اضغط تسجيل توقف.
+    <p id="message" class="help" aria-live="polite">
+      عند انقطاع الكهرباء اضغط تسجيل توقف، وعند رجوعها اضغط استئناف العمل.
     </p>
   </section>
 
   <section class="card">
     <h2>٣. سجل الأحداث</h2>
-
-    <div id="events">
-      لا توجد أحداث مسجلة.
-    </div>
-
-    <button id="pdf" class="primary no-print">
-      📄 طباعة التقرير الكامل PDF
-    </button>
+    <div id="events"><p class="help">لا توجد أحداث مسجلة.</p></div>
+    <button id="pdf" class="primary no-print">📄 طباعة التقرير الكامل PDF</button>
+    <p class="help no-print">من نافذة الطباعة اختر حفظ كـ PDF.</p>
   </section>
 
   <section class="notice no-print">
-    مهم: هذه النسخة تحفظ البيانات في متصفح الجهاز فقط.
-    احتفظ بنسخ PDF احتياطية.
+    تنبيه: البيانات محفوظة في متصفح هذا الجهاز فقط. احتفظ بنسخ PDF احتياطية.
   </section>
-
 </main>
 
 <script>
 (() => {
-  const KEY = "goldWorkshopRecords_v1";
-
+  const KEY = 'goldWorkshopRecords_v2';
   const $ = id => document.getElementById(id);
-
-  const fields = [
-    "tenant",
-    "startDate",
-    "endDate",
-    "notes"
-  ];
-
-  let record = blankRecord();
+  const fields = ['tenant','startDate','endDate','notes'];
   let records = [];
+  let record;
 
   function blankRecord() {
     return {
       id: String(Date.now()) + Math.random(),
-      tenant: "",
-      startDate: "",
-      endDate: "",
-      notes: "",
-      state: "idle",
+      tenant: '',
+      startDate: '',
+      endDate: '',
+      notes: '',
+      state: 'idle',
       lastAt: null,
       workMs: 0,
       stopMs: 0,
       stopCount: 0,
-      events: [],
-      createdAt: Date.now()
+      events: []
     };
   }
 
   function load() {
     try {
-      records = JSON.parse(
-        localStorage.getItem(KEY) || "[]"
-      );
-    } catch {
+      records = JSON.parse(localStorage.getItem(KEY) || '[]');
+      if (!Array.isArray(records)) records = [];
+    } catch (e) {
       records = [];
     }
 
     if (records.length) {
       record = records[records.length - 1];
-      fillFields();
     } else {
       record = blankRecord();
-      saveAll();
+      records.push(record);
     }
 
+    fillFields();
     render();
   }
 
   function saveAll() {
-    const i = records.findIndex(
-      x => x.id === record.id
-    );
-
-    if (i < 0) {
-      records.push(record);
-    } else {
-      records[i] = record;
-    }
+    const index = records.findIndex(x => x.id === record.id);
+    if (index === -1) records.push(record);
+    else records[index] = record;
 
     try {
-      localStorage.setItem(
-        KEY,
-        JSON.stringify(records)
-      );
-    } catch {}
+      localStorage.setItem(KEY, JSON.stringify(records));
+    } catch (e) {
+      msg('تعذر حفظ البيانات. احتفظ بنسخة PDF.');
+    }
   }
 
   function fillFields() {
-    fields.forEach(k => {
-      $(k).value = record[k] || "";
+    fields.forEach(key => {
+      $(key).value = record[key] || '';
     });
   }
 
   function readFields() {
-    fields.forEach(k => {
-      record[k] = $(k).value.trim();
+    fields.forEach(key => {
+      record[key] = $(key).value.trim();
     });
   }
 
   function fmt(ms) {
-    let sec = Math.floor(
-      Math.max(0, ms) / 1000
-    );
-
-    const h = Math.floor(sec / 3600);
+    let sec = Math.floor(Math.max(0, ms) / 1000);
+    const hours = Math.floor(sec / 3600);
     sec %= 3600;
-
-    const m = Math.floor(sec / 60);
+    const minutes = Math.floor(sec / 60);
     sec %= 60;
 
-    return [h, m, sec]
-      .map(n => String(n).padStart(2, "0"))
-      .join(":");
+    return [hours, minutes, sec]
+      .map(n => String(n).padStart(2, '0'))
+      .join(':');
   }
 
-  function dateText(s) {
-    if (!s) return "—";
-
-    const [y, m, d] = s.split("-");
-
+  function dateText(value) {
+    if (!value) return '—';
+    const [y, m, d] = value.split('-');
     return `${d}/${m}/${y}`;
   }
 
-  function timeText(t) {
-    return new Date(t).toLocaleString("ar-IQ", {
-      year: "numeric",
-      month: "2-digit",
-      day: "2-digit",
-      hour: "2-digit",
-      minute: "2-digit",
-      second: "2-digit"
+  function timeText(value) {
+    return new Date(value).toLocaleString('ar-IQ', {
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit'
     });
   }
 
   function totals() {
-    let w = record.workMs;
-    let s = record.stopMs;
+    let work = record.workMs;
+    let stop = record.stopMs;
 
-    if (record.lastAt && record.state === "work") {
-      w += Date.now() - record.lastAt;
+    if (record.lastAt && record.state === 'work') {
+      work += Date.now() - record.lastAt;
     }
 
-    if (record.lastAt && record.state === "stop") {
-      s += Date.now() - record.lastAt;
+    if (record.lastAt && record.state === 'stop') {
+      stop += Date.now() - record.lastAt;
     }
 
-    return [w, s];
+    return {work, stop};
   }
 
-  function esc(s) {
-    return String(s ?? "").replace(
-      /[&<>"']/g,
-      c => ({
-        "&": "&amp;",
-        "<": "&lt;",
-        ">": "&gt;",
-        '"': "&quot;",
-        "'": "&#39;"
-      }[c])
-    );
+  function esc(value) {
+    return String(value ?? '').replace(/[&<>"']/g, ch => ({
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#39;'
+    }[ch]));
+  }
+
+  function msg(text) {
+    $('message').textContent = text;
+  }
+
+  function addEvent(type, note = '') {
+    record.events.push({
+      type,
+      time: Date.now(),
+      note
+    });
   }
 
   function render() {
-    const [w, s] = totals();
+    const t = totals();
 
-    $("workTotal").textContent = fmt(w);
-    $("stopTotal").textContent = fmt(s);
-    $("stopCount").textContent = record.stopCount;
+    $('workTotal').textContent = fmt(t.work);
+    $('stopTotal').textContent = fmt(t.stop);
+    $('stopCount').textContent = record.stopCount;
 
-    $("period").textContent =
+    $('period').textContent =
       record.startDate && record.endDate
         ? `${dateText(record.startDate)} – ${dateText(record.endDate)}`
-        : "—";
+        : '—';
 
-    const st = $("status");
+    const status = $('status');
+    status.className = 'status' +
+      (record.state === 'work' ? ' work' :
+       record.state === 'stop' ? ' stop' : '');
 
-    if (st) {
-      st.className = "status" +
-        (record.state === "work" ? " work" :
-         record.state === "stop" ? " stop" : "");
+    status.textContent =
+      record.state === 'work' ? '🟢 يعمل' :
+      record.state === 'stop' ? '🔴 متوقف' :
+      '⚪ لم يبدأ العمل';
 
-      st.textContent =
-        record.state === "work" ? "🟢 يعمل" :
-        record.state === "stop" ? "🔴 متوقف" :
-        "⚪ لم يبدأ العمل";
-    }
-
-    $("events").innerHTML = record.events.length
-      ? record.events.slice().reverse().map(e =>
+    $('events').innerHTML = record.events.length
+      ? record.events.slice().reverse().map(event =>
           `<div class="logitem">
-            <strong>${esc(e.type)}</strong>
-            <div class="logtime">${esc(timeText(e.time))}</div>
-            ${e.note ? `<div>${esc(e.note)}</div>` : ""}
+            <strong>${esc(event.type)}</strong>
+            <div class="logtime">${esc(timeText(event.time))}</div>
+            ${event.note ? `<div>${esc(event.note).replace(/\n/g, '<br>')}</div>` : ''}
           </div>`
-        ).join("")
-      : "<p class='help'>لا توجد أحداث مسجلة.</p>";
+        ).join('')
+      : '<p class="help">لا توجد أحداث مسجلة.</p>';
 
     saveAll();
   }
 
-  function msg(t) {
-    $("message").textContent = t;
-  }
-
-  function valid() {
+  function validate() {
     readFields();
 
     if (!record.tenant) {
-      msg("يرجى كتابة اسم المستأجر.");
+      msg('يرجى كتابة اسم المستأجر أولاً.');
       return false;
     }
 
-    if (
-      record.startDate &&
-      record.endDate &&
-      record.endDate < record.startDate
-    ) {
-      msg("تاريخ الانتهاء يجب ألا يسبق تاريخ البدء.");
+    if (record.startDate && record.endDate &&
+        record.endDate < record.startDate) {
+      msg('تاريخ الانتهاء يجب ألا يسبق تاريخ البدء.');
       return false;
     }
 
     return true;
   }
 
-  function addEvent(type) {
-    record.events.push({
-      type,
-      time: Date.now(),
-      note: $("eventNote").value.trim()
-    });
-
-    $("eventNote").value = "";
-  }
-
-  $("saveInfo").onclick = () => {
-    if (!valid()) return;
-
+  $('saveInfo').addEventListener('click', () => {
+    if (!validate()) return;
     saveAll();
-    msg("تم حفظ بيانات المستأجر.");
     render();
-  };
+    msg('تم حفظ بيانات المستأجر.');
+  });
 
-  $("startWork").onclick = () => {
-    if (!valid()) return;
+  $('startWork').addEventListener('click', () => {
+    if (!validate()) return;
 
-    if (record.state !== "idle") {
-      msg("العمل بدأ بالفعل أو يوجد توقف مفتوح.");
+    if (record.state !== 'idle') {
+      msg('العداد يعمل بالفعل أو توجد فترة توقف مفتوحة.');
       return;
     }
 
-    record.state = "work";
+    record.state = 'work';
     record.lastAt = Date.now();
+    addEvent('بدء العمل', $('eventNote').value.trim());
+    $('eventNote').value = '';
 
-    addEvent("بدء العمل");
-
-    msg("بدأ عداد وقت العمل.");
+    msg('بدأ عداد وقت العمل.');
     render();
-  };
+  });
 
-  $("stopWork").onclick = () => {
-    if (record.state !== "work") {
-      msg("العمل ليس في حالة تشغيل.");
+  $('stopWork').addEventListener('click', () => {
+    if (record.state !== 'work') {
+      msg('العداد ليس في حالة عمل حالياً.');
       return;
     }
 
     const now = Date.now();
-
     record.workMs += now - record.lastAt;
     record.lastAt = now;
-    record.state = "stop";
+    record.state = 'stop';
     record.stopCount++;
 
-    addEvent("توقف العمل");
+    addEvent('توقف العمل', $('eventNote').value.trim());
+    $('eventNote').value = '';
 
-    msg("تم تسجيل التوقف.");
+    msg('تم تسجيل التوقف وبدأ حساب وقت التوقف.');
     render();
-  };
+  });
 
-  $("resumeWork").onclick = () => {
-    if (record.state !== "stop") {
-      msg("لا يوجد توقف مسجل لاستئناف العمل.");
+  $('resumeWork').addEventListener('click', () => {
+    if (record.state !== 'stop') {
+      msg('لا يوجد توقف مفتوح لاستئناف العمل.');
       return;
     }
 
     const now = Date.now();
-
     record.stopMs += now - record.lastAt;
     record.lastAt = now;
-    record.state = "work";
+    record.state = 'work';
 
-    addEvent("استئناف العمل");
+    addEvent('استئناف العمل', $('eventNote').value.trim());
+    $('eventNote').value = '';
 
-    msg("تم استئناف العمل.");
+    msg('تم استئناف العمل.');
     render();
-  };
+  });
 
-  $("newRecord").onclick = () => {
-    if (!confirm("إنشاء سجل جديد لمستأجر آخر؟")) {
+  // هذا الزر يحفظ الملاحظة في السجل، ولا يفتح الطباعة.
+  $('addNote').addEventListener('click', () => {
+    const note = $('eventNote').value.trim();
+
+    if (!note) {
+      msg('اكتب الملاحظة في خانة ملاحظة الحدث أولاً.');
+      return;
+    }
+
+    readFields();
+    addEvent('ملاحظة', note);
+    $('eventNote').value = '';
+
+    saveAll();
+    render();
+    msg('تم حفظ الملاحظة. ستظهر في التقرير عند طباعة PDF.');
+  });
+
+  $('newRecord').addEventListener('click', () => {
+    if (record.state !== 'idle' &&
+        !confirm('العداد يعمل أو متوقف. هل تريد إنشاء سجل جديد؟')) {
       return;
     }
 
@@ -653,194 +468,119 @@ button {
 
     record = blankRecord();
     records.push(record);
-
     fillFields();
-    saveAll();
 
-    msg("تم إنشاء سجل جديد.");
+    msg('تم إنشاء سجل جديد لمستأجر آخر.');
     render();
-  };
+  });
 
-  $("printNotes").onclick = () => {
-    readFields();
+  $('pdf').addEventListener('click', () => {
+    if (!validate()) return;
+
     saveAll();
+    const t = totals();
 
-    const note = esc(
-      record.notes || "لا توجد ملاحظات مكتوبة."
-    ).replace(/\n/g, "<br>");
+    const rows = record.events.map(event =>
+      `<tr>
+        <td>${esc(timeText(event.time))}</td>
+        <td>${esc(event.type)}</td>
+        <td>${esc(event.note || '—').replace(/\n/g, '<br>')}</td>
+      </tr>`
+    ).join('');
 
-    const w = window.open("", "_blank");
-
-    if (!w) {
-      msg("اسمح بالنوافذ المنبثقة ثم حاول مجدداً.");
-      return;
-    }
-
-    w.document.open();
-
-    w.document.write(`
-      <!doctype html>
-      <html lang="ar" dir="rtl">
+    const report = `<!doctype html>
+    <html lang="ar" dir="rtl">
+    <head>
       <meta charset="utf-8">
-      <title>ملاحظات المستأجر</title>
+      <title>تقرير معمل الذهب</title>
       <style>
         body {
           font-family: Arial, Tahoma, sans-serif;
-          margin: 25px;
-          line-height: 1.8;
           color: #17231f;
+          margin: 28px;
+          line-height: 1.8;
         }
         h1 {
           color: #176b50;
           border-bottom: 3px solid #c99b3b;
-          padding-bottom: 10px;
+          padding-bottom: 12px;
         }
         .box {
-          border: 1px solid #dce5df;
-          border-radius: 9px;
-          padding: 14px;
-          margin: 12px 0;
+          border: 1px solid #ccd7d0;
+          border-radius: 8px;
+          padding: 12px;
+          margin: 10px 0;
         }
+        .notes { white-space: pre-wrap; }
+        table {
+          width: 100%;
+          border-collapse: collapse;
+          margin-top: 12px;
+        }
+        th, td {
+          border: 1px solid #cbd5ce;
+          padding: 8px;
+          text-align: right;
+          font-size: 12px;
+        }
+        th { background: #eaf1ec; }
+        @media print { body { margin: 12mm; } }
       </style>
-
-      <h1>ملاحظات المستأجر</h1>
+    </head>
+    <body>
+      <h1>تقرير تأجير معمل الذهب</h1>
 
       <div class="box">
-        <b>اسم المستأجر:</b> ${esc(record.tenant || "—")}<br>
-        <b>بدء التأجير:</b> ${dateText(record.startDate)}<br>
-        <b>انتهاء التأجير:</b> ${dateText(record.endDate)}
+        <b>اسم المستأجر:</b> ${esc(record.tenant || '—')}<br>
+        <b>تاريخ بدء التأجير:</b> ${dateText(record.startDate)}<br>
+        <b>تاريخ انتهاء التأجير:</b> ${dateText(record.endDate)}<br>
+        <b>تاريخ التقرير:</b> ${timeText(Date.now())}
       </div>
 
       <div class="box">
-        <b>الملاحظات:</b><br>${note}
+        <b>إجمالي وقت العمل:</b> ${fmt(t.work)}<br>
+        <b>إجمالي وقت التوقف:</b> ${fmt(t.stop)}<br>
+        <b>عدد التوقفات:</b> ${record.stopCount}
       </div>
 
-      <script>
-        window.onload = function() {
-          window.print();
-        };
-      <\/script>
-      </html>
-    `);
+      <div class="box">
+        <b>الملاحظات العامة:</b>
+        <div class="notes">${esc(record.notes || 'لا توجد ملاحظات')}</div>
+      </div>
 
-    w.document.close();
-  };
+      <h2>سجل الأحداث والملاحظات</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>التاريخ والوقت</th>
+            <th>الحدث</th>
+            <th>الملاحظة</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${rows || '<tr><td colspan="3">لا توجد أحداث</td></tr>'}
+        </tbody>
+      </table>
+    </body>
+    </html>`;
 
-  $("pdf").onclick = () => {
-    if (!valid()) return;
-
-    saveAll();
-
-    const [w, s] = totals();
-
-    const rows = record.events.map(e =>
-      `<tr>
-        <td>${esc(timeText(e.time))}</td>
-        <td>${esc(e.type)}</td>
-        <td>${esc(e.note || "—")}</td>
-      </tr>`
-    ).join("");
-
-    const win = window.open("", "_blank");
+    const win = window.open('', '_blank');
 
     if (!win) {
-      msg("اسمح بالنوافذ المنبثقة ثم حاول مجدداً.");
+      msg('المتصفح منع نافذة التقرير. اسمح بالنوافذ المنبثقة ثم حاول مجدداً.');
       return;
     }
 
     win.document.open();
-
-    win.document.write(`
-      <!doctype html>
-      <html lang="ar" dir="rtl">
-      <head>
-        <meta charset="utf-8">
-        <title>تقرير معمل الذهب</title>
-        <style>
-          body {
-            font-family: Arial, Tahoma, sans-serif;
-            color: #17231f;
-            margin: 28px;
-            line-height: 1.7;
-          }
-          h1 {
-            color: #176b50;
-            border-bottom: 3px solid #c99b3b;
-            padding-bottom: 12px;
-          }
-          .box {
-            border: 1px solid #ccd7d0;
-            border-radius: 8px;
-            padding: 12px;
-            margin: 10px 0;
-          }
-          table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 12px;
-          }
-          th, td {
-            border: 1px solid #cbd5ce;
-            padding: 8px;
-            text-align: right;
-          }
-          th {
-            background: #eaf1ec;
-          }
-        </style>
-      </head>
-
-      <body>
-        <h1>تقرير تأجير معمل الذهب</h1>
-
-        <div class="box">
-          <b>اسم المستأجر:</b> ${esc(record.tenant)}<br>
-          <b>تاريخ بدء التأجير:</b> ${dateText(record.startDate)}<br>
-          <b>تاريخ انتهاء التأجير:</b> ${dateText(record.endDate)}<br>
-          <b>تاريخ التقرير:</b> ${timeText(Date.now())}
-        </div>
-
-        <div class="box">
-          <b>إجمالي وقت العمل:</b> ${fmt(w)}<br>
-          <b>إجمالي وقت التوقف:</b> ${fmt(s)}<br>
-          <b>عدد التوقفات:</b> ${record.stopCount}
-        </div>
-
-        <div class="box">
-          <b>الملاحظات العامة:</b><br>
-          ${esc(record.notes || "لا توجد ملاحظات")}
-        </div>
-
-        <h2>سجل الأحداث</h2>
-
-        <table>
-          <thead>
-            <tr>
-              <th>التاريخ والوقت</th>
-              <th>الحدث</th>
-              <th>الملاحظة</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            ${rows || "<tr><td colspan='3'>لا توجد أحداث</td></tr>"}
-          </tbody>
-        </table>
-
-        <script>
-          window.onload = function() {
-            window.print();
-          };
-        <\/script>
-      </body>
-      </html>
-    `);
-
+    win.document.write(report);
     win.document.close();
-  };
+    win.onload = () => win.print();
 
-  fields.forEach(k => {
-    $(k).addEventListener("change", () => {
+    msg('افتح نافذة التقرير واختر طباعة ثم حفظ كـ PDF.');
+  });
+
+  fields.forEach(key => {
+    $(key).addEventListener('change', () => {
       readFields();
       saveAll();
       render();
@@ -849,10 +589,8 @@ button {
 
   // تحديث العداد كل ثانية.
   setInterval(render, 1000);
-
   load();
 })();
 </script>
-
 </body>
 </html>
